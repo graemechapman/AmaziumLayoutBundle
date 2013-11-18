@@ -1,0 +1,19 @@
+{
+    "name": "amazium/layoutbundle",
+    "type": "symfony-bundle",
+    "description": "Amazium layout templates for Symfony2",
+    "keywords": ["Amazium","Symfony2", "Bundle", "Form", "Template"],
+    "homepage": "https://github.com/hobnob/AmaziumLayoutBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David North",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "symfony/framework-bundle": "2.*"
+    },
+    "target-dir": "vendors/Amazium/Bundle/LayoutBundle"
+}
