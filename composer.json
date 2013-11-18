@@ -15,5 +15,10 @@
         "php": ">=5.4.0",
         "symfony/framework-bundle": "2.*"
     },
-    "target-dir": "vendors/Amazium/Bundle/LayoutBundle"
+    "autoload": {
+        "psr-0": {
+            "Amazium\\Bundle\\LayoutBundle": ""
+        }
+    },
+    "target-dir": "Amazium/Bundle/LayoutBundle"
 }
