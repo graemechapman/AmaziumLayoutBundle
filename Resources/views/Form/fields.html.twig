@@ -1,0 +1,33 @@
+{% use "form_div_layout.html.twig" %}
+
+{% block choice_widget_collapsed %}
+    {% spaceless %}
+        <span class="select">
+            {{ parent() }}
+        </span>
+    {% endspaceless %}
+{% endblock %}
+
+{% block form_errors %}
+    {% spaceless %}
+        {% for error in errors %}
+            <small>{{ error.message }}</small>
+        {% endfor %}
+    {% endspaceless %}
+{% endblock form_errors %}
+
+{% block form_row %}
+    {% spaceless %}
+        <fieldset{% if errors|length %} class="error"{% endif %}}>
+            {{ form_label(form) }}
+            {{ form_widget(form) }}
+            {{ form_errors(form) }}
+        </fieldset>
+    {% endspaceless %}
+{% endblock form_row %}
+
+{% block hidden_row %}
+    {% spaceless %}
+        {{ form_widget(form) }}
+    {% endspaceless %}
+{% endblock hidden_row %}
