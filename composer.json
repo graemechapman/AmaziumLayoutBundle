@@ -1,5 +1,5 @@
 {
-    "name": "amazium/layout-bundle",
+    "name": "hobnob/amazium-layout-bundle",
     "type": "symfony-bundle",
     "description": "Amazium layout templates for Symfony2",
     "keywords": ["Amazium","Symfony2", "Bundle", "Form", "Template"],
@@ -17,8 +17,8 @@
     },
     "autoload": {
         "psr-0": {
-            "Hobnob\\Amazium\\Bundle\\LayoutBundle": ""
+            "Hobnob\\Bundle\\AmaziumLayoutBundle": ""
         }
     },
-    "target-dir": "Hobnob/Amazium/Bundle/LayoutBundle"
+    "target-dir": "Hobnob/Bundle/AmaziumLayoutBundle"
 }
