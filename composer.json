@@ -17,8 +17,8 @@
     },
     "autoload": {
         "psr-0": {
-            "Amazium\\Bundle\\LayoutBundle": ""
+            "Hobnob\\Amazium\\Bundle\\LayoutBundle": ""
         }
     },
-    "target-dir": "Amazium/Bundle/LayoutBundle"
+    "target-dir": "Hobnob/Amazium/Bundle/LayoutBundle"
 }
