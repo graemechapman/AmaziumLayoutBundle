@@ -1,6 +1,6 @@
 <?php
 
-namespace Amazium\Bundle\LayoutBundle\DependencyInjection;
+namespace Hobnob\Bundle\AmaziumBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
