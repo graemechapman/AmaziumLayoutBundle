@@ -2,7 +2,7 @@
 
 {% block choice_widget_collapsed %}
     {% spaceless %}
-        <span class="select">
+        <span class="select{% if disabled %} disabled{% endif %}">
             {{ parent() }}
         </span>
     {% endspaceless %}
