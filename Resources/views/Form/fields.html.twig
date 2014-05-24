@@ -19,9 +19,15 @@
 {% block form_row %}
     {% spaceless %}
         <fieldset{% if errors|length %} class="error"{% endif %}>
-            {{ form_label(form) }}
-            {{ form_widget(form) }}
-            {{ form_errors(form) }}
+            {% if 'checkbox' in block_prefixes or 'radio' in block_prefixes %}
+                <div class="{{ 'checkbox' in block_prefixes ? 'checkbox' : 'radio' }}">
+                    {{ form_widget(form) }}
+                </div>
+            {% else %}
+                {{ form_label(form) }}
+                {{ form_widget(form) }}
+                {{ form_errors(form) }}
+            {% endif %}
         </fieldset>
     {% endspaceless %}
 {% endblock form_row %}
@@ -39,3 +45,23 @@
         {{ form_widget(form) }}
     {% endspaceless %}
 {% endblock hidden_row %}
+
+{% block checkbox_widget %}
+    {% spaceless %}
+    <span>
+        <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+        {{ form_label(form) }}
+        {{ form_errors(form) }}
+    </span>
+    {% endspaceless %}
+{% endblock checkbox_widget %}
+
+{% block radio_widget %}
+    {% spaceless %}
+    <span>
+        <input type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+        {{ form_label(form) }}
+        {{ form_errors(form) }}
+    </span>
+    {% endspaceless %}
+{% endblock radio_widget %}
