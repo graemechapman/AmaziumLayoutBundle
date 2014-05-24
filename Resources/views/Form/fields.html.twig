@@ -2,7 +2,7 @@
 
 {% block choice_widget_collapsed %}
     {% spaceless %}
-        <span class="select">
+        <span class="select{% if disabled %} disabled{% endif %}">
             {{ parent() }}
         </span>
     {% endspaceless %}
@@ -19,15 +19,58 @@
 {% block form_row %}
     {% spaceless %}
         <fieldset{% if errors|length %} class="error"{% endif %}>
-            {{ form_label(form) }}
-            {{ form_widget(form) }}
-            {{ form_errors(form) }}
+            {% if 'checkbox' in block_prefixes or 'radio' in block_prefixes %}
+                <div class="{{ 'checkbox' in block_prefixes ? 'checkbox' : 'radio' }}">
+                    {{ form_widget(form) }}
+                </div>
+            {% else %}
+                {{ form_label(form) }}
+                {{ form_widget(form) }}
+                {{ form_errors(form) }}
+            {% endif %}
         </fieldset>
     {% endspaceless %}
 {% endblock form_row %}
+
+{% block button_row %}
+{% spaceless %}
+    <fieldset>
+        {{ form_widget(form) }}
+    </fieldset>
+{% endspaceless %}
+{% endblock button_row %}
 
 {% block hidden_row %}
     {% spaceless %}
         {{ form_widget(form) }}
     {% endspaceless %}
 {% endblock hidden_row %}
+
+{% block checkbox_widget %}
+    {% spaceless %}
+    <span>
+        <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+        {{ form_label(form) }}
+        {{ form_errors(form) }}
+    </span>
+    {% endspaceless %}
+{% endblock checkbox_widget %}
+
+{% block radio_widget %}
+    {% spaceless %}
+    <span>
+        <input type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+        {{ form_label(form) }}
+        {{ form_errors(form) }}
+    </span>
+    {% endspaceless %}
+{% endblock radio_widget %}
+
+{% block choice_widget_expanded %}
+    {% set attr = attr|merge({'class': (multiple ? 'checkbox' : 'radio') ~ (attr.class is defined ? ' ' ~ attr.class : '')}) %}
+    <div {{ block('widget_container_attributes') }}>
+    {% for child in form %}
+        {{ form_widget(child) }}
+    {% endfor %}
+    </div>
+{% endblock choice_widget_expanded %}
