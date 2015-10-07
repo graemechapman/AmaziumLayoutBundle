@@ -11,7 +11,7 @@
 {% block form_errors %}
     {% spaceless %}
         {% for error in errors %}
-            <small>{{ error.message }}</small>
+            <small class="error-label">{{ error.message }}</small>
         {% endfor %}
     {% endspaceless %}
 {% endblock form_errors %}
